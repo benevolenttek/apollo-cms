@@ -19,9 +19,5 @@ export default withData((props) => (
       </Col>
     </Row>
 
-    <style jsx>{`
-
-    `}</style>
-
   </App>
 ))

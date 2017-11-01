@@ -8,7 +8,7 @@ function Post ({ id, data: { loading, error, Post } }) {
       <div key={Post.id}>
         <h1>{Post.title}</h1>
         <p>ID: {Post.id}<br/>URL: {Post.url}</p>
-        <PostUpvoter id={Post.id} votes={Post.votes} />
+        <p><PostUpvoter id={Post.id} votes={Post.votes} /></p>
       </div>
     </section>
   )

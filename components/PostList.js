@@ -1,7 +1,9 @@
 import { gql, graphql } from 'react-apollo'
 import ErrorMessage from './ErrorMessage'
 import PostUpvoter from './PostUpvoter'
+
 import Link from 'next/link'
+import { Button } from 'react-bootstrap'
 
 const POSTS_PER_PAGE = 10
 
@@ -15,52 +17,16 @@ function PostList ({ data: { loading, error, allPosts, _allPostsMeta }, loadMore
           {allPosts.map((post, index) =>
             <li key={post.id}>
               <div>
-                <span>{index + 1}. </span>
-                <Link href={{ pathname: '/blog/'+post.id}}><a>{post.title}</a></Link>
+                <h3>
+                  <span>{index + 1}. </span>
+                  <Link href={{ pathname: '/blog/'+post.id}}><a>{post.title}</a></Link>
+                </h3>
                 <PostUpvoter id={post.id} votes={post.votes} />
               </div>
             </li>
           )}
         </ul>
-        {areMorePosts ? <button onClick={() => loadMorePosts()}> {loading ? 'Loading...' : 'Show More'} </button> : ''}
-        <style jsx>{`
-          section {
-            padding-bottom: 20px;
-          }
-          li {
-            display: block;
-            margin-bottom: 10px;
-          }
-          div {
-            align-items: center;
-            display: flex;
-          }
-          a {
-            font-size: 14px;
-            margin-right: 10px;
-            text-decoration: none;
-            padding-bottom: 0;
-            border: 0;
-          }
-          span {
-            font-size: 14px;
-            margin-right: 5px;
-          }
-          ul {
-            margin: 0;
-            padding: 0;
-          }
-          button:before {
-            align-self: center;
-            border-style: solid;
-            border-width: 6px 4px 0 4px;
-            border-color: #ffffff transparent transparent transparent;
-            content: "";
-            height: 0;
-            margin-right: 5px;
-            width: 0;
-          }
-        `}</style>
+        {areMorePosts ? <Button onClick={() => loadMorePosts()}> {loading ? 'Loading...' : 'Show More'} </Button> : ''}
       </section>
     )
   }

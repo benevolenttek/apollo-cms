@@ -44,31 +44,17 @@ function Submit({createPost}) {
           type="text"
           label="Title"
           placeholder="Enter title"
-
+          name="title"
         />
         <FieldGroup
           type="text"
           label="Url"
           placeholder="Enter url"
-
+          name="url"
         />
 
-        <Button type='submit'>Submit</Button>
+        <input className="btn btn-default" type='submit' value="Submit" />
 
-        <style jsx>{`
-          form {
-            border-bottom: 1px solid #ececec;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-          }
-          h1 {
-            font-size: 20px;
-          }
-          input {
-            display: block;
-            margin-bottom: 10px;
-          }
-      `}</style>
       </FormGroup>
     </form>
   )

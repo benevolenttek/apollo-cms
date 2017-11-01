@@ -4,7 +4,7 @@ export default ({pathname}) => (
   <div>
     <header>
 
-      {/* Don't use React-Bootstrap Nav because you can't use Link and prefetch with it */}
+      {/* Don't use React-Bootstrap Nav because it throws js error when using Link */}
       <nav className="navbar navbar-default">
         <div className="container">
           <div className="navbar-header">
