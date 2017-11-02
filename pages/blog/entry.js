@@ -2,15 +2,36 @@ import App from '../../components/App'
 import Header from '../../components/Header'
 import Post from '../../components/Post'
 import withData from '../../lib/withData'
+import checkLoggedIn from '../../lib/checkLoggedIn'
+// import redirectAnonymous from '../../lib/redirectAnonymous'
 
-import {Col, Row, Jumbotron} from 'react-bootstrap'
+import {Grid, Col, Row} from 'react-bootstrap'
 
-export default withData((props) => (
-  <App>
-    <Header pathname={props.url.pathname} />
+class Page extends React.Component {
 
-    <section className={'body-default-width'}>
-      <Post id={props.url.query.id} />
-    </section>
-  </App>
-))
+  static async getInitialProps(context, apolloClient) {
+    const {loggedInUser} = await checkLoggedIn(context, apolloClient)
+    // redirectAnonymous(context, loggedInUser)
+    return {loggedInUser}
+  }
+
+  render() {
+    return (
+      <App>
+        <Header pathname={this.props.url.pathname} loggedInUser={this.props.loggedInUser} />
+
+        <section>
+          <Grid>
+            <Row>
+              <Col xs={12}>
+                <Post id={this.props.url.query.id}/>
+              </Col>
+            </Row>
+          </Grid>
+        </section>
+      </App>
+    )
+  }
+}
+
+export default withData(Page)

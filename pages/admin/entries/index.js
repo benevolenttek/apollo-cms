@@ -1,20 +1,46 @@
+import React from 'react'
+import withData from '../../../lib/withData'
 import App from '../../../components/App'
 import Header from '../../../components/Header'
-import Submit from '../../../components/Submit'
 import PostTable from '../../../components/PostTable'
-import withData from '../../../lib/withData'
+import Submit from '../../../components/Submit'
+import checkLoggedIn from '../../../lib/checkLoggedIn'
+import redirectAnonymous from '../../../lib/redirectAnonymous'
 
-export default withData((props) => (
-  <App>
-    <Header pathname={props.url.pathname} />
+import {Grid, Col, Row} from 'react-bootstrap'
 
-    <section className={'body-default-width'}>
-      <h1>Posts</h1>
-      <PostTable />
+class Index extends React.Component {
 
-      <div style={{maxWidth:'400px'}}>
-        <Submit />
-      </div>
-    </section>
-  </App>
-))
+  static async getInitialProps(context, apolloClient) {
+    const {loggedInUser} = await checkLoggedIn(context, apolloClient)
+    redirectAnonymous(context, loggedInUser)
+    return {loggedInUser}
+  }
+
+  render() {
+    return (
+      <App>
+        <Header pathname={this.props.url.pathname} loggedInUser={this.props.loggedInUser}/>
+
+        <section>
+          <Grid>
+            <Row>
+              <Col xs={12}>
+
+                <h1>Posts</h1>
+                <PostTable/>
+
+                <div style={{maxWidth: '400px'}}>
+                  <Submit/>
+                </div>
+
+              </Col>
+            </Row>
+          </Grid>
+        </section>
+      </App>
+    )
+  }
+}
+
+export default withData(Index)

@@ -8,9 +8,22 @@ A basic blog web application to demonstrate Nextjs, Redux, and Apollo
 
 ## TODOs
 
+Fix logout update in nav
+
+Implement content structure
+
 Implement Apollo Subscription for post titles
 
-Install Bootstrap 4 and form handling
+Implement roles
+* https://www.howtographql.com/graphcool/3-authentication-and-permissions/
+
+Implement SEO Header
+* See nextjs header example
+
+Implement Facebook Auth
+* https://www.graph.cool/docs/tutorials/auth/authentication-with-facebook-for-react-and-apollo-yi9jeuwohl
+
+Install Bootstrap 3 and form handling
 * https://github.com/zeit/next.js/tree/master/examples/form-handler
 
 Install auth
@@ -38,6 +51,24 @@ Investigate linting
 ## Dependencies
 
 This demo relies on [graph.cool](https://www.graph.cool) for its GraphQL backend. I have set a graphcool server as a default for testing.
+
+You may manage Graphcool from the CLI. You may run it locally and/or deploy migrations from the `graphcool` directory.
+
+Initializing a new graphcool
+```bash
+graphcool init
+```
+
+Updating and deploying schema
+```bash
+vim types.graphql
+graphcool deploy
+```
+
+Adding authentication (see [tutorial](https://www.graph.cool/docs/tutorials/auth/authentication-with-email-and-password-for-react-and-apollo-cu3jah9ech#setting-up-your-graphql-server))
+```bash
+graphcool add-template graphcool/templates/auth/email-password
+```
 
 ## Credits
 

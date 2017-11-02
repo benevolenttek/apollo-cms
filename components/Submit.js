@@ -40,19 +40,8 @@ function Submit({createPost}) {
       <FormGroup controlId="formBasicText">
         <h3>Add New</h3>
 
-        <FieldGroup
-          type="text"
-          label="Title"
-          placeholder="Enter title"
-          name="title"
-        />
-        <FieldGroup
-          type="text"
-          label="Url"
-          placeholder="Enter url"
-          name="url"
-        />
-
+        <FieldGroup type="text" label="Title" placeholder="Enter title" name="title" />
+        <FieldGroup type="text" label="Url" placeholder="Enter url" name="url" />
         <input className="btn btn-default" type='submit' value="Submit" />
 
       </FormGroup>
