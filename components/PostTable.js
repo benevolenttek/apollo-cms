@@ -2,7 +2,7 @@ import { gql, graphql } from 'react-apollo'
 import ErrorMessage from './ErrorMessage'
 import PostUpvoter from './PostUpvoter'
 
-import Link from 'next/link'
+import {Link} from '../routes'
 import {Table} from 'react-bootstrap'
 
 const POSTS_PER_PAGE = 10

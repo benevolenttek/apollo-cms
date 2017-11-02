@@ -27,10 +27,9 @@ const app = next({dev})
  * Benefits: Less code, and easily handles complex url structures
  */
 
-const routes = require('next-routes')()
-routes.add('blog/entry', '/blog/:id')
-
+const routes = require('./routes')
 const handler = routes.getRequestHandler(app)
+
 app.prepare().then(() => {
   createServer(handler)
     .listen(port, (err) => {

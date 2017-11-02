@@ -4,7 +4,7 @@ import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
 
 import redirect from '../lib/redirect'
 
-import Link from 'next/link'
+import {Link} from '../routes'
 
 class Header extends React.Component {
 

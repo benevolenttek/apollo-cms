@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, withApollo, compose} from 'react-apollo'
 import cookie from 'cookie'
-import Link from 'next/link'
+import {Link} from '../routes'
 import {gql} from 'react-apollo'
 import {Grid, Col, Row, Jumbotron} from 'react-bootstrap'
 import {Button, FormGroup, ControlLabel, FormControl, HelpBlock} from 'react-bootstrap'
