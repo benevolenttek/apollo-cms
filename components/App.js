@@ -21,9 +21,9 @@ export default ({ children }) => (
 
     {children}
 
-    <style jsx global>{`
+    {/*<style jsx global>{`
 
-    `}</style>
+    `}</style>*/}
 
     <script src='http://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script async src='https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.js'></script>
