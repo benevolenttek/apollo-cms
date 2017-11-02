@@ -19,7 +19,7 @@ function PostList ({ data: { loading, error, allPosts, _allPostsMeta }, loadMore
               <div>
                 <h3>
                   <span>{index + 1}. </span>
-                  <Link href={'/blog/'+post.id}><a>{post.title}</a></Link>
+                  <Link route='blog/entry' params={{id: post.id}}><a>{post.title}</a></Link>
 
                 </h3>
                 <PostUpvoter id={post.id} votes={post.votes} />
