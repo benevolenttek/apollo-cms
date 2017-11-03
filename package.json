@@ -1,25 +1,71 @@
 {
   "name": "ApolloCMS",
-  "version": "2.0.0",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "Brian",
+    "email": "brian@benevolent.tech",
+    "url": ""
+  },
+  "contributors": [],
+  "files": [
+    "server",
+    "client",
+    "test"
+  ],
+  "main": "lib/server/index.js",
+  "keywords": [
+    "electrode",
+    "app",
+    "confippet",
+    "progressive"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "benevolenttech/my-electrode-app"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 4 <= 8",
+    "npm": ">= 3 <= 5"
+  },
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "build": "clap build",
+    "prestart": "clap build",
+    "hot": "clap hot",
+    "start": "if test \"$NODE_ENV\" = \"production\"; then npm run prod; else clap dev; fi",
+    "test": "clap build & clap test",
+    "coverage": "clap check",
+    "prod": "echo 'Starting standalone server in PROD mode'; NODE_ENV=production node ./lib/server/",
+    "heroku-postbuild": "clap build"
   },
   "dependencies": {
-    "cookie": "^0.3.1",
-    "graphql": "^0.9.3",
+    "above-the-fold-only-server-render": "^1.0.2",
+    "bluebird": "^3.4.6",
+    "electrode-archetype-react-app": "^4.0.0",
+    "electrode-csrf-jwt": "^1.0.0",
+    "electrode-react-ssr-caching": "^0.1.3",
+    "electrode-react-webapp": "^2.1.0",
+    "electrode-redux-router-engine": "^1.5.0",
+    "electrode-router-resolver-engine": "^1.1.0",
+    "electrode-server": "^1.0.0",
+    "electrode-static-paths": "^1.0.0",
+    "es6-promise": "^4.0.5",
     "isomorphic-fetch": "^2.2.1",
-    "next": "latest",
-    "next-routes": "^1.1.0",
-    "nprogress": "^0.2.0",
-    "prop-types": "^15.5.8",
-    "react": "^16.0.0",
-    "react-apollo": "^1.1.3",
-    "react-bootstrap": "^0.31.5",
-    "react-dom": "^16.0.0",
-    "redux": "^3.6.0"
+    "lodash": "^4.10.1",
+    "material-ui": "^0.16.4",
+    "mongojs": "^2.4.0",
+    "react": "^15.0.0",
+    "react-apollo": "^2.0.0",
+    "react-dom": "^15.0.0",
+    "react-notify-toast": "^0.1.3",
+    "uuid": "^3.0.1"
   },
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "electrode-archetype-react-app-dev": "^4.0.0",
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11"
+  }
 }
