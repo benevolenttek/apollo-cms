@@ -31,14 +31,19 @@ Implement Facebook Auth
 * https://www.graph.cool/docs/tutorials/auth/authentication-with-facebook-for-react-and-apollo-yi9jeuwohl
 
 Investigate search
-* Custom vs. [algolia](https://github.com/zeit/next.js/tree/master/examples/with-algolia-react-instantsearch)
+* Example [algolia](https://github.com/zeit/next.js/tree/master/examples/with-algolia-react-instantsearch)
 
 Investigate APM
-* https://github.com/zeit/next.js/tree/master/examples/with-amp
+* Example https://github.com/zeit/next.js/tree/master/examples/with-amp
 
 Investigate linting
 
+## Electrode Vs. NextJS
 
+* More polished and consistent syntax. Doesn't mix and max functional vs. OOP.
+* Native features
+* Closer to normal React and easier to learn
+* Uses React Router - more features, easier to learn
 
 ## Dependencies
 

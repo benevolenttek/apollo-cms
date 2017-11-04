@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "above-the-fold-only-server-render": "^1.0.2",
+    "apollo-client": "^2.0.0",
     "bluebird": "^3.4.6",
     "electrode-archetype-react-app": "^4.0.0",
     "electrode-csrf-jwt": "^1.0.0",
@@ -52,6 +53,7 @@
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
     "es6-promise": "^4.0.5",
+    "graphql": "^0.11.3",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.10.1",
     "material-ui": "^0.16.4",
