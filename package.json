@@ -32,7 +32,6 @@
   },
   "scripts": {
     "build": "clap build",
-    "prestart": "clap build",
     "hot": "clap hot",
     "start": "if test \"$NODE_ENV\" = \"production\"; then npm run prod; else clap dev; fi",
     "test": "clap build & clap test",
@@ -43,6 +42,7 @@
   "dependencies": {
     "above-the-fold-only-server-render": "^1.0.2",
     "apollo-client": "^2.0.0",
+    "apollo-client-preset": "^1.0.1",
     "bluebird": "^3.4.6",
     "electrode-archetype-react-app": "^4.0.0",
     "electrode-csrf-jwt": "^1.0.0",
@@ -57,7 +57,6 @@
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.10.1",
     "material-ui": "^0.16.4",
-    "mongojs": "^2.4.0",
     "react": "^15.0.0",
     "react-apollo": "^2.0.0",
     "react-dom": "^15.0.0",
