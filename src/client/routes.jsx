@@ -4,7 +4,6 @@ import Home from "./components/home";
 import PostList from "./components/post-list";
 import Post from "./components/post";
 
-
 export const routes = (
   <Route path="/">
     <IndexRoute component={Home} />
