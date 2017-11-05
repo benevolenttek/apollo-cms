@@ -18,6 +18,8 @@ class Header extends React.Component {
             <Link to="/">Home</Link>
             {' '}-{' '}
             <Link to="/posts">Posts</Link>
+            {' '}-{' '}
+            <Link to="/todos">TODOs</Link>
           </ul>
         </nav>
 
