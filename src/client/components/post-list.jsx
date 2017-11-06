@@ -4,6 +4,8 @@ import { connect } from "react-redux"
 import Header from "./header"
 import Footer from "./footer"
 import {Link} from 'react-router'
+import { graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
 
 class PostList extends React.Component {
   constructor(props) {
@@ -56,4 +58,54 @@ const mapStateToProps = (state) => ({
   // count: state.count
 });
 
-export default connect(mapStateToProps)(PostList);
+const POSTS_PER_PAGE = 10
+const PostListQuery = graphql(
+  gql`
+    query allPosts($first: Int!, $skip: Int!) {
+      allPosts(orderBy: createdAt_DESC, first: $first, skip: $skip) {
+        id
+        title
+        votes
+        url
+        createdAt
+      },
+      _allPostsMeta {
+        count
+      }
+    },
+  `,
+  {
+    options: {
+      variables: {
+        skip: 0,
+        first: 1
+      }
+    }
+    // ,
+    // props: ({ data }) => ({
+    //   data,
+    //   loadMorePosts: () => {
+    //     return data.fetchMore({
+    //       variables: {
+    //         skip: data.allPosts.length
+    //       },
+    //       updateQuery: (previousResult, { fetchMoreResult }) => {
+    //         if (!fetchMoreResult) {
+    //           return previousResult
+    //         }
+    //         return Object.assign({}, previousResult, {
+    //           // Append the new posts results to the old one
+    //           allPosts: [...previousResult.allPosts, ...fetchMoreResult.allPosts]
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
+  }
+);
+
+
+export default compose(
+  connect(mapStateToProps),
+  git statusgit statusPostListQuery
+)(PostList);

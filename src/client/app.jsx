@@ -10,6 +10,13 @@ import rootReducer from "./reducers";
 import DevTools from "./devtools";
 import updateStorage from "./middleware";
 
+
+import {ApolloClient} from 'apollo-client';
+import {HttpLink} from 'apollo-link-http';
+import {InMemoryCache} from 'apollo-cache-inmemory';
+import {ApolloProvider} from 'react-apollo';
+
+
 require.ensure(["./sw-registration"], (require) => {
   require("./sw-registration")(notify);
 }, "sw-registration");
@@ -24,13 +31,20 @@ const enhancer = compose(
 window.webappStart = () => {
   const initialState = window.__PRELOADED_STATE__;
   const store = createStore(rootReducer, initialState, enhancer);
+
+  const client = new ApolloClient({
+    link: new HttpLink({uri: 'https://api.graph.cool/simple/v1/cj9g48vlm79hy0120m4tvigm9'}),
+    cache: new InMemoryCache()
+  });
+
   render(
-    <Provider store={store}>
-      <div>
-        <Router history={browserHistory}>{routes}</Router>
-        <DevTools/>
-      </div>
-    </Provider>,
+      <ApolloProvider client={client} store={store}>
+        <div>
+          <Router history={browserHistory}>{routes}</Router>
+          <DevTools/>
+          <h1>Hello, world.</h1>
+        </div>
+      </ApolloProvider>,
     document.querySelector(".js-content")
   );
 };
