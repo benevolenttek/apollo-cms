@@ -1,7 +1,7 @@
 {
   "valid": true,
   "version": "1.6.4",
-  "timestamp": 1509981362038,
+  "timestamp": 1509984158411,
   "context": "src/client",
   "output": {
     "path": "dist/js",
@@ -11,10 +11,10 @@
   "assets": {
     "marked": {},
     "chunks": {
-      "sw-registration": "171531d86672000ae29b.sw-registration.js",
+      "sw-registration": "65e935335668b1d797e6.sw-registration.js",
       "main": [
         "main.bundle.dev.js",
-        "main.style.171531d86672000ae29b.css",
+        "main.style.65e935335668b1d797e6.css",
         "main.style.css"
       ]
     }

@@ -80,7 +80,8 @@ const PostListQuery = graphql(
         skip: 0,
         first: 1
       }
-    }
+    },
+    withRef: true,
     // ,
     // props: ({ data }) => ({
     //   data,
@@ -105,7 +106,11 @@ const PostListQuery = graphql(
 );
 
 
+// export default connect(mapStateToProps)
+
 export default compose(
   connect(mapStateToProps),
-  git statusgit statusPostListQuery
+  PostListQuery
 )(PostList);
+
+
