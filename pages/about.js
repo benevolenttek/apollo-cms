@@ -3,7 +3,7 @@ import withData from '../lib/withData'
 import App from '../components/App'
 import Header from '../components/Header'
 import checkLoggedIn from '../lib/checkLoggedIn'
-// import redirectAnonymous from '../lib/redirectAnonymous'
+import {Router} from '../routes'
 
 import {Grid, Col, Row} from 'react-bootstrap'
 
@@ -11,7 +11,7 @@ class About extends React.Component {
 
   static async getInitialProps(context, apolloClient) {
     const {loggedInUser} = await checkLoggedIn(context, apolloClient)
-    // redirectAnonymous(context, loggedInUser)
+    // if (!loggedInUser.user) { Router.pushRoute('/login') }
     return {loggedInUser}
   }
 
@@ -38,6 +38,7 @@ class About extends React.Component {
                   <p>
                     This example relies on <a href='http://graph.cool'>graph.cool</a> for its GraphQL backend.
                   </p>
+
                 </article>
               </Col>
             </Row>

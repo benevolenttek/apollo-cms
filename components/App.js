@@ -2,9 +2,8 @@ import Head from 'next/head'
 
 // Progress bar
 import NProgress from 'nprogress'
-import Router from 'next/router'
+import {Router} from '../routes'
 Router.onRouteChangeStart = (url) => {
-  console.log(`Loading: ${url}`)
   NProgress.start()
 }
 Router.onRouteChangeComplete = () => NProgress.done()
@@ -36,7 +35,7 @@ export default ({ children }) => (
 //
 // // Progress bar
 // import NProgress from 'nprogress'
-// import Router from 'next/router'
+// import {Router} from '../routes'
 // Router.onRouteChangeStart = (url) => {
 //   console.log(`Loading: ${url}`)
 //   NProgress.start()

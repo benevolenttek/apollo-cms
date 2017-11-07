@@ -8,7 +8,7 @@ import {Button, FormGroup, ControlLabel, FormControl, HelpBlock} from 'react-boo
 
 import App from '../components/App'
 import withData from '../lib/withData'
-import redirect from '../lib/redirect'
+import {Router} from '../routes'
 import checkLoggedIn from '../lib/checkLoggedIn'
 
 function FieldGroup({id, label, help, ...props}) {
@@ -24,13 +24,10 @@ function FieldGroup({id, label, help, ...props}) {
 class Signin extends React.Component {
   static async getInitialProps(context, apolloClient) {
     const {loggedInUser} = await checkLoggedIn(context, apolloClient)
-
     if (loggedInUser.user) {
-      // Already signed in? No need to continue.
-      // Throw them back to the main page
-      redirect(context, '/')
+      context.res.writeHead(303, { Location: '/admin' })
+      context.res.end()
     }
-
     return {loggedInUser}
   }
 
@@ -48,7 +45,7 @@ class Signin extends React.Component {
                   <FormGroup controlId="formLogin">
                     <FieldGroup type="email" label="Email" placeholder="Enter email" name="email"/>
                     <FieldGroup type="password" label="Password" placeholder="Enter password" name="password"/>
-                    <button>Sign in</button>
+                    <input type={'submit'} value="Sign in" className={'btn btn-default btn-lg'} />
                   </FormGroup>
                 </form>
                 <hr/>
@@ -107,8 +104,7 @@ export default compose(
             // Force a reload of all the current queries now that the user is
             // logged in
             client.resetStore().then(() => {
-              // Now redirect to the homepage
-              redirect({}, '/')
+              Router.pushRoute('/admin')
             })
           }).catch((error) => {
             // Something went wrong, such as incorrect password, or no network
