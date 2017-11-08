@@ -2,16 +2,11 @@ import React from 'react'
 import cookie from 'cookie'
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
 
-import {Router} from '../routes'
+import redirect from '../lib/redirect'
 
 import {Link} from '../routes'
 
 class Header extends React.Component {
-
-  goBack = (e) => {
-    e.preventDefault()
-    Router.back()
-  }
 
   signout = (e) => {
     e.preventDefault()
@@ -24,7 +19,7 @@ class Header extends React.Component {
     // logged in, so we don't accidentally leave any state around.
     // this.props.client.resetStore().then(() => {
     // Redirect to a more useful page when signed out
-    Router.pushRoute('/login')
+    redirect({}, '/')
     // })
   }
 
@@ -41,9 +36,7 @@ class Header extends React.Component {
   renderHello = () => {
     return (
       <li>
-        <Link href="/admin">
-          <a>Hello prefetch {this.props.loggedInUser.user.name}!</a>
-        </Link>
+        <a href="#">Hello {this.props.loggedInUser.user.name}!</a>
       </li>
     )
   }
@@ -94,9 +87,6 @@ class Header extends React.Component {
                   <Link prefetch href='/admin/entries'>
                     <a>Content</a>
                   </Link>
-                </li>
-                <li>
-                  <a href="#" onClick={this.goBack}>←</a>
                 </li>
 
                 {/* Example of dropdown

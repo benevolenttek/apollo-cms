@@ -5,7 +5,7 @@ import Header from '../../../components/Header'
 import PostTable from '../../../components/PostTable'
 import Submit from '../../../components/Submit'
 import checkLoggedIn from '../../../lib/checkLoggedIn'
-import {Router} from '../../../routes'
+import redirectAnonymous from '../../../lib/redirectAnonymous'
 
 import {Grid, Col, Row} from 'react-bootstrap'
 
@@ -13,7 +13,7 @@ class Index extends React.Component {
 
   static async getInitialProps(context, apolloClient) {
     const {loggedInUser} = await checkLoggedIn(context, apolloClient)
-    if (!loggedInUser.user) { Router.pushRoute('/login') }
+    redirectAnonymous(context, loggedInUser)
     return {loggedInUser}
   }
 

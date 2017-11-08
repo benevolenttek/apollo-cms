@@ -8,7 +8,7 @@ A basic blog web application to demonstrate Nextjs, Redux, and Apollo
 
 ## TODOs
 
-Implement browser history with redux
+Fix logout update in nav
 
 Implement content structure
 
@@ -20,13 +20,14 @@ Implement roles
 Implement SEO Header
 * See nextjs header example
 
-Resolve Link issue: https://github.com/fridays/next-routes/issues/115
-
 Implement Facebook Auth
 * https://www.graph.cool/docs/tutorials/auth/authentication-with-facebook-for-react-and-apollo-yi9jeuwohl
 
 Install Bootstrap 3 and form handling
 * https://github.com/zeit/next.js/tree/master/examples/form-handler
+
+Install auth
+* https://github.com/zeit/next.js/tree/master/examples/with-apollo-auth
 
 Investigate Redux features
 
@@ -75,8 +76,6 @@ This demo combines and extends on several examples:
 * https://github.com/zeit/next.js/tree/master/examples/with-apollo-and-redux
 * https://github.com/zeit/next.js/tree/master/examples/with-loading
 * https://github.com/zeit/next.js/tree/master/examples/with-next-routes
-* https://github.com/zeit/next.js/tree/master/examples/with-apollo-auth
-* https://github.com/zeit/next.js/tree/master/examples/form-handler
 
 ## Past Experiments
 
@@ -126,13 +125,6 @@ Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.
 ```bash
 now
 ```
-
-
-## Cordova
-
-Get started by following these guides: 
-* https://cordova.apache.org/docs/en/latest/guide/cli/index.html
-* https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html
 
 
 

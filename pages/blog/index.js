@@ -4,7 +4,7 @@ import Submit from '../../components/Submit'
 import PostList from '../../components/PostList'
 import withData from '../../lib/withData'
 import checkLoggedIn from '../../lib/checkLoggedIn'
-// import {Router} from '../routes'
+import redirectAnonymous from '../../lib/redirectAnonymous'
 
 import {Grid, Col, Row} from 'react-bootstrap'
 
@@ -12,7 +12,7 @@ class Page extends React.Component {
 
   static async getInitialProps(context, apolloClient) {
     const {loggedInUser} = await checkLoggedIn(context, apolloClient)
-    // if (!loggedInUser.user) { Router.pushRoute('/login') }
+    // redirectAnonymous(context, loggedInUser)
     return {loggedInUser}
   }
 

@@ -7,7 +7,7 @@ import {Button, FormGroup, ControlLabel, FormControl, HelpBlock} from 'react-boo
 
 import App from '../components/App'
 import withData from '../lib/withData'
-import {Router} from '../routes'
+import redirect from '../lib/redirect'
 import checkLoggedIn from '../lib/checkLoggedIn'
 
 function FieldGroup({id, label, help, ...props}) {
@@ -27,8 +27,7 @@ class CreateAccount extends React.Component {
     if (loggedInUser.user) {
       // Already signed in? No need to continue.
       // Throw them back to the main page
-      context.res.writeHead(303, { Location: '/admin' })
-      context.res.end()
+      redirect(context, '/')
     }
 
     return {loggedInUser}
@@ -113,7 +112,7 @@ export default compose(
             // logged in
             client.resetStore().then(() => {
               // Now redirect to the homepage
-              Router.pushRoute('/admin')
+              redirect({}, '/')
             })
           }).catch((error) => {
             // Something went wrong, such as incorrect password, or no network
