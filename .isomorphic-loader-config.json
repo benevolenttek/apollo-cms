@@ -1,0 +1,29 @@
+{
+  "valid": true,
+  "version": "1.6.4",
+  "timestamp": 1510089369174,
+  "context": "src\\client",
+  "output": {
+    "path": "dist\\js",
+    "filename": "[name].bundle.dev.js",
+    "publicPath": "http://localhost:2992/js/"
+  },
+  "assets": {
+    "marked": {},
+    "chunks": {
+      "sw-registration": "893d8e3638c514a8669a.sw-registration.js",
+      "main": [
+        "main.bundle.dev.js",
+        "main.style.893d8e3638c514a8669a.css",
+        "main.style.css"
+      ]
+    }
+  },
+  "webpackDev": {
+    "skipSetEnv": false,
+    "url": "http://localhost:2992",
+    "addUrl": false
+  },
+  "isWebpackDev": true,
+  "assetsFile": "dist\\isomorphic-assets.json"
+}

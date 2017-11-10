@@ -2,51 +2,48 @@
 
 # Basic Blog Demo with NextJS, Redux and Apollo
 
+This branch is with ElectrodeJS as the framework instead of NextJS.
+
+
 ## About
 
 A basic blog web application to demonstrate Nextjs, Redux, and Apollo
 
 ## TODOs
 
-Fix logout update in nav
+Investigate whether apollo is worthwhile
+* Think about subscriptions and socket.io
+
+Implement Auth
+* https://www.howtographql.com/graphcool/3-authentication-and-permissions/
+
+Compare to NextJS
+
+Implement Subscription for post titles
 
 Implement content structure
 
-Implement Apollo Subscription for post titles
 
-Implement roles
-* https://www.howtographql.com/graphcool/3-authentication-and-permissions/
 
 Implement SEO Header
-* See nextjs header example
 
 Implement Facebook Auth
 * https://www.graph.cool/docs/tutorials/auth/authentication-with-facebook-for-react-and-apollo-yi9jeuwohl
 
-Install Bootstrap 3 and form handling
-* https://github.com/zeit/next.js/tree/master/examples/form-handler
-
-Install auth
-* https://github.com/zeit/next.js/tree/master/examples/with-apollo-auth
-
-Investigate Redux features
-
-Investigate redux alternatives:
-* https://github.com/zeit/next.js/tree/master/examples/with-refnux
-* https://github.com/zeit/next.js/tree/master/examples/with-freactal
-
 Investigate search
-* Custom vs. [algolia](https://github.com/zeit/next.js/tree/master/examples/with-algolia-react-instantsearch)
+* Example [algolia](https://github.com/zeit/next.js/tree/master/examples/with-algolia-react-instantsearch)
 
 Investigate APM
-* https://github.com/zeit/next.js/tree/master/examples/with-amp
-
-Try SSR-Caching Again
-* 
+* Example https://github.com/zeit/next.js/tree/master/examples/with-amp
 
 Investigate linting
 
+## Electrode Vs. NextJS
 
+* More polished and consistent syntax. Doesn't mix and max functional vs. OOP.
+* Native features
+* Closer to normal React and easier to learn
+* Uses React Router - more features, easier to learn
 
 ## Dependencies
 
@@ -73,40 +70,29 @@ graphcool add-template graphcool/templates/auth/email-password
 ## Credits
 
 This demo combines and extends on several examples:
-* https://github.com/zeit/next.js/tree/master/examples/with-apollo-and-redux
-* https://github.com/zeit/next.js/tree/master/examples/with-loading
-* https://github.com/zeit/next.js/tree/master/examples/with-next-routes
+* Coming soon
 
 ## Past Experiments
 
 1. Compared to Relay example, this is 3x simpler AND performant.
-2. Tried [ssr-caching](https://github.com/zeit/next.js/tree/master/examples/ssr-caching), and it seemed unreliable. Ex. going to /blog served homepage.
 
 ## How to use
-
-Download the example [or clone the repo](https://github.com/zeit/next.js):
-
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/master | tar -xz --strip=2 next.js-master/examples/with-apollo-and-redux
-cd with-apollo-and-redux
-```
 
 Install it and run:
 
 ```bash
 npm install
-npm run dev
+clap dev
 ```
 
 Run development server
 ```bash
-npm run dev
+clap dev
 ```
 
 Run production server
 ```bash
-npm run build
-npm start
+clap server-prod
 ```
 
 Push db changes from server/types.graphql
@@ -125,21 +111,3 @@ Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.
 ```bash
 now
 ```
-
-
-
-## The idea behind the example
-By default, Apollo Client creates its own internal Redux store to manage queries and their results. If you are already using Redux for the rest of your app, [you can have the client integrate with your existing store instead](http://dev.apollodata.com/react/redux.html), which is what this example does. This example is identical to the [`with-apollo`](https://github.com/zeit/next.js/tree/master/examples/with-apollo) with the exception of this Redux store integration. 
-
-Note that you can acesss the redux store like you normally would using `react-redux`'s `connect` as per [here](http://dev.apollodata.com/react/redux.html#using-connect). Here's a quick example:
-
-```js
-const mapStateToProps = state => ({
-  location: state.form.location,
-});
-
-export default withData(connect(mapStateToProps, null)(Index));
-```
-
-`connect` must go inside `withData` otherwise `connect` will not be able to find the store. 
-
